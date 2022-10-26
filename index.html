@@ -1,0 +1,98 @@
+<!doctype html >
+<html lang='en'>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>http.meower.org</title>
+
+  <style>
+    #header {
+      width: 100%;
+      color: #ff5600;
+      background-color: #ff5600;
+      height: 45px;
+    }
+    #header * {
+      display: inline;
+    }
+    #header #meower-logo {
+      position: relative;
+      top: 8px;
+      right: -10px;
+      color: #FFFF;
+      font-size: 24px;
+      font:"Scratch";
+    }
+    
+    html, body {
+      padding: 0px;
+      margin: 0px;
+      background-color: #f9a737;
+    }
+    
+    ul {
+      display: inline-table;
+      align: left;
+      padding:6px; 
+      list-style: none !important;
+    }
+    li {
+      list-style: none;
+      padding: 3px;
+      padding-bottom: 0px;
+      display: inline-grid;
+      background-color: #d28f53 !important;
+      border-radius: 12px;
+      max-height:190px;
+
+    }
+    li img {
+      padding: 0px !important;
+      
+    }
+
+    li .afterImg {
+      color: #FFFF;
+      position: relative;
+      padding: 1px !important;
+      top: -18px !important; 
+      
+      
+    }
+  </style>
+</head>
+<body>
+  <div id="header"> 
+    <div id='meower-logo'>
+      <p>HTTPMeower</p>
+      
+    </div>
+    
+  </div>
+  <ul>
+    {% for url in urls %}
+      
+      <li>
+        <center>
+        <p href="/{{ url }}">
+           
+          <img href="/{{ url }}" src="/{{ url }}" width="100" height="100">
+          <div class="afterImg" style='max-width: 100px; margin: 0px;'>
+            
+              <p style="margin: 0px;">
+              {{url.split(".")[0]}}
+                <br>
+              {{ statuscodes[url.split(".")[0]] }}
+              </p>
+            
+          </div>
+          </p>  
+        </center>
+      </li>
+    
+    {% endfor %}
+  </ul>
+</body>
+</html>

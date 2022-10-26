@@ -1,0 +1,33 @@
+{
+  "name": "http-meower",
+  "version": "1.0.0",
+  "description": "Parody of http.cat and http.dog, but for Meower.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "DEBUG='express:router'; node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meower-media-co/http-meower.git"
+  },
+  "keywords": [
+    "http.cat",
+    "http.dog",
+    "http",
+    "status",
+    "codes"
+  ],
+  "author": "Meower Media Co",
+  "license": "SEE LICENSE IN LICENCE",
+  "bugs": {
+    "url": "https://github.com/meower-media-co/http-meower/issues"
+  },
+  "homepage": "https://github.com/meower-media-co/http-meower#readme",
+  "dependencies": {
+    "express": "4.18.2",
+    "express-winston": "^4.2.0",
+    "nunjucks": "3.2.3",
+    "winston": "^3.8.2"
+  }
+}
