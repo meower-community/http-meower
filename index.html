@@ -38,14 +38,21 @@
       padding:6px; 
       list-style: none !important;
     }
+
+
     li {
-      list-style: none;
-      padding: 3px;
-      padding-bottom: 0px;
+      padding-bottom: 8px;
       display: inline-grid;
+      border-color: black;
+      border-width: 1px;
+    }
+    
+    li * {
+      list-style: none;
       background-color: #d28f53 !important;
       border-radius: 12px;
       max-height:190px;
+
 
     }
     li img {
@@ -74,7 +81,7 @@
   <ul>
     {% for url in urls %}
       
-      <li>
+      <li style='min-width: 120px;'>
         <center>
         <p href="/{{ url }}">
            

@@ -110,7 +110,13 @@ app.get('/', (req, res) => {
 app.get('/:code', (req, res) => {
 
   try {
-    res.sendFile(__dirname + "/imgs/"+ req.params.code.replace(".jpg", "") +".jpg");
+    //check if file exists
+    if (fs.existsSync(__dirname + "/imgs/"+ req.params.code.replace(".jpg", "") +".jpg")) {
+      res.sendFile(__dirname + "/imgs/"+ req.params.code.replace(".jpg", "") +".jpg");
+    } else {
+       throw 'e'
+    }
+    
   }  catch (err) {
     res.status(404).sendFile(__dirname + "/imgs/404.jpg");
   }
