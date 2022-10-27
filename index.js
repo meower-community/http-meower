@@ -1,6 +1,8 @@
 
 
 const express = require('express');
+const cors = require('cors');
+
 var nunjucks = require('nunjucks');
 
 const app = express();
@@ -107,8 +109,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/:code', (req, res) => {
-
+app.get('/:code', cors(), (req, res) => {
   try {
     //check if file exists
     if (fs.existsSync(__dirname + "/imgs/"+ req.params.code.replace(".jpg", "") +".jpg")) {
