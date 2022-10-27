@@ -4,7 +4,6 @@ Parody of http.cat and http.dog, but for Meower.
 
 ## Codes That are not done
 
-- '101': 'Switching Protocols',
 - '102': 'Processing',
 - '103': 'Early Hints',
 - '201': 'Created',
