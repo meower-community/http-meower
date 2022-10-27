@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "simvoni";
+  src: url(https://meower.org/fonts/Simvoni.ttf) format("truetype");
+}
+#header {
+  width: 100%;
+  color: #ff5600;
+  background-color: #ff5600;
+  height: 45px;
+}
+#header * {
+  display: inline;
+}
+#header #meower-logo {
+  position: relative;
+  top: 8px;
+  right: -10px;
+  color: #ffff;
+  font-size: 24px;
+  font-family: "simvoni";
+}
+
+html,
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: #f9a737;
+}
+
+ul {
+  display: inline-table;
+  align: left;
+  padding: 6px;
+  list-style: none !important;
+}
+
+li {
+  padding-bottom: 8px;
+  padding-left: 6px;
+  display: inline-grid;
+  border-color: black;
+  align: center;
+  border-width: 1px;
+  min-width: 120px;
+}
+
+li * {
+  list-style: none;
+  background-color: #d28f53 !important;
+  border-radius: 12px;
+  max-height: 190px;
+  
+  font-family: "simvoni";
+}
+
+li img {
+  padding: 0px !important;
+}
+
+li .afterImg {
+  color: #ffff;
+  position: relative;
+  padding: 1px !important;
+  top: -18px !important;
+  max-width: 100px;
+  margin: 0px;
+}
+li .afterImg p {
+  margin: 0px;
+}
