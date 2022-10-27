@@ -2,7 +2,6 @@
 Parody of http.cat and http.dog, but for Meower.
 
 ## Codes That are not done
- -   '100': 'Continue',
  -   '101': 'Switching Protocols',
  -   '102': 'Processing',
  -   '103': 'Early Hints',
@@ -23,9 +22,7 @@ Parody of http.cat and http.dog, but for Meower.
  -   '307': 'Temporary Redirect',
  -   '308': 'Permanent Redirect',
  -   '400': 'Bad Request',
- -   '401': 'Unauthorized',
  -   '402': 'Payment Required',
- -   '403': 'Forbidden',
  -   '405': 'Method Not Allowed',
  -   '406': 'Not Acceptable',
  -   '407': 'Proxy Authentication Required',
@@ -41,9 +38,7 @@ Parody of http.cat and http.dog, but for Meower.
  -   '417': 'Expectation Failed',
  -   '418': "I'm a Teapot",
  -   '421': 'Misdirected Request',
- -   '422': 'Unprocessable Entity',
- -   '423': 'Locked',
- -   '424': 'Failed Dependency',
+ -   '423': 'Locked', -   '424': 'Failed Dependency',
  -   '425': 'Too Early',
  -   '428': 'Precondition Required',
  -   '431': 'Request Header Fields Too Large',
