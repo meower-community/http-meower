@@ -3,7 +3,8 @@
 Parody of http.cat and http.dog, but for Meower.
 
 ## hosting:
-  [Cloudflare pages](https://pages.cloudflare.com/)
+
+[Cloudflare pages](https://pages.cloudflare.com/)
 
 ## Codes That are not done
 

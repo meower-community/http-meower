@@ -10,7 +10,7 @@
   height: 45px;
 }
 
-#header #meower-logo  {
+#header #meower-logo {
   position: relative;
   top: -12px;
   right: -5px;
@@ -25,18 +25,15 @@
 }
 
 #header p {
-    position: relative;
-    right: 5px;
-    
+  position: relative;
+  right: 5px;
 }
 #header #menu {
   float: right;
   position: relative;
   left: -12px;
   top: 13px;
-  
 }
-
 
 a {
   outline: none;
@@ -45,16 +42,16 @@ a {
 }
 
 a:link {
-  color: #FFF;
+  color: #fff;
 }
 
 a:visited {
-  color: #FFFF;
+  color: #ffff;
 }
 
 a:focus {
   border-bottom: 1px solid;
-  background: #FFFF;
+  background: #ffff;
 }
 
 a:hover {
@@ -65,7 +62,6 @@ a:hover {
 a:active {
   color: #FFFFF;
 }
-
 
 html,
 body {
@@ -96,7 +92,7 @@ li * {
   background-color: #d28f53 !important;
   border-radius: 12px;
   max-height: 190px;
-  
+
   font-family: "simvoni";
 }
 
@@ -104,7 +100,7 @@ li img {
   padding: 0px !important;
 }
 
-.link{
+.link {
 }
 
 li .afterImg {
