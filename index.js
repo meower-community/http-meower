@@ -8,7 +8,6 @@ const fs = require("fs");
 
 var expressWinston = require("express-winston");
 var winston = require("winston");
-var URL = require("url");
 
 http_codes = {
   100: "Continue",
@@ -83,14 +82,10 @@ app.use(
     msg: "{{req.method}} {{req.url}} {{req.status}}", // optional: customize the default logging message. E.g. "{{res.statusCode}} {{req.method}} {{res.responseTime}}ms {{req.url}}"
     expressFormat: false, // Use the default Express/morgan request formatting. Enabling this will override any msg if true. Will only output colors with colorize set to true
     colorize: false, // Color the text and status code, using the Express/morgan color palette (text: gray, status: default green, 3XX cyan, 4XX yellow, 5XX red).
-    ignoreRoute: function (req, res) {
-      // cq: none
-      return false;
-    }, // optional: allows to skip some log messages based on request and/or response
   })
 );
 
-var imgs = fs.readdirSync(__dirname + "/imgs");
+var imgs = fs.readdirSync(`${__dirname}/imgs`);
 
 //remove the dir name from the img path
 imgs = imgs.map(function (file) {
@@ -103,7 +98,10 @@ nunjucks.configure(".", {
 });
 
 app.get("/", (req, res) => {
-  res.render("./index.html", { urls: imgs, statuscodes: http_codes });
+  res.render(`${__dirname}/static/index.html`, {
+    urls: imgs,
+    statuscodes: http_codes,
+  });
 });
 
 app.get("/:code", cors(), (req, res) => {
@@ -125,24 +123,24 @@ app.get("/:code", cors(), (req, res) => {
 //static handling
 app.get("/static/:path", (req, res) => {
   try {
-    var fp = __dirname + "/static/" + req.params.path;
+    var fp = `${__dirname}/static/${req.params.path}`;
     if (fs.existsSync(fp)) {
       res.sendFile(fp);
     } else {
-      throw "e";
+      throw "e"; //cq: ignore
     }
   } catch (err) {
     console.error(err);
-    res.status(404).sendFile(__dirname + "/imgs/404.jpg");
+    res.status(404).sendFile(`${__dirname}/imgs/404.jpg`);
   }
 });
 
 app.get("/favicon.ico", (req, res) => {
-  res.sendFile(__dirname + "/static/favicon.jpg");
+  res.sendFile(`${__dirname}/static/favicon.jpg`);
 });
 
 app.get("/static/favicon.ico", (req, res) => {
-  res.sendFile(__dirname + "/static/favicon.jpg");
+  res.sendFile(`${__dirname}/static/favicon.jpg`);
 });
 
 //print every request
