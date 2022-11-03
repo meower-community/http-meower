@@ -98,19 +98,19 @@ nunjucks.configure(".", {
 app.get("/", (_, res) => {
   res.render(`${__dirname}/static/index.html`, {
     urls: imgs,
-    statuscodes: http_codes, //cq: ignore JS-0125 // (var is defined, and works)
+    statuscodes: http_codes, //skipcq JS-0125 // (var is defined, and works)
   });
 });
 
 app.get("/:code", cors(), (req, res) => {
-  let fp; //cq: ignore
+  let fp; //skipcq
   try {
     //check if file exists
     fp = `${__dirname}/imgs/${req.params.code.replace(".jpg", "")}.jpg`;
     if (fs.existsSync(fp)) {
       res.sendFile(fp);
     } else {
-      throw "e"; //cq: ignore
+      throw "e"; //skipcq
     }
   } catch (err) {
     console.error(err);
@@ -120,13 +120,13 @@ app.get("/:code", cors(), (req, res) => {
 
 //static handling
 app.get("/static/:path", (req, res) => {
-  let fp; //cq: ignore
+  let fp; //skipcq
   try {
     fp = `${__dirname}/static/${req.params.path}`;
     if (fs.existsSync(fp)) {
       res.sendFile(fp);
     } else {
-      throw "e"; //cq: ignore
+      throw "e"; //skipcq
     }
   } catch (err) {
     console.error(err);
