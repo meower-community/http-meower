@@ -5,7 +5,7 @@ const fs = require("fs");
 const expressWinston = require("express-winston");
 const winston = require("winston");
 
-const imgs = fs.readdirSync(`${__dirname}/imgs`);
+let imgs = fs.readdirSync(`${__dirname}/imgs`);
 const http_codes = {
   100: "Continue",
   101: "Switching Protocols",
@@ -73,6 +73,7 @@ const http_codes = {
 };
 
 const app = express();
+app.disable("x-powered-by");
 
 app.use(
   expressWinston.logger({
@@ -102,10 +103,10 @@ app.get("/", (_, res) => {
 });
 
 app.get("/:code", cors(), (req, res) => {
-  let fp;
+  let fp; //cq: ignore
   try {
     //check if file exists
-    fp = __dirname + "/imgs/" + req.params.code.replace(".jpg", "") + ".jpg";
+    fp = `${__dirname}/imgs/${req.params.code.replace(".jpg", "")}.jpg`;
     if (fs.existsSync(fp)) {
       res.sendFile(fp);
     } else {
@@ -119,7 +120,7 @@ app.get("/:code", cors(), (req, res) => {
 
 //static handling
 app.get("/static/:path", (req, res) => {
-  let fp;
+  let fp; //cq: ignore
   try {
     fp = `${__dirname}/static/${req.params.path}`;
     if (fs.existsSync(fp)) {
