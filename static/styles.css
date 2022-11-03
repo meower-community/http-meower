@@ -115,16 +115,14 @@ li .afterImg p {
   margin: 0px;
 }
 
-
 @media (max-width: 768px) {
-	#header #menu {
-		position: relative;
-		display: table !important;
-		top: 6px;
-		left: 3px !important;
-		max-width: 210px;
-		text-align: center;
-		width: 210px;
-	}
-	
+  #header #menu {
+    position: relative;
+    display: table !important;
+    top: 6px;
+    left: 3px !important;
+    max-width: 210px;
+    text-align: center;
+    width: 210px;
+  }
 }

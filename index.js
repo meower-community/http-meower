@@ -1,16 +1,12 @@
 const express = require("express");
 const cors = require("cors");
-
-var nunjucks = require("nunjucks");
-
-const app = express();
+const nunjucks = require("nunjucks");
 const fs = require("fs");
+const expressWinston = require("express-winston");
+const winston = require("winston");
 
-var expressWinston = require("express-winston");
-var winston = require("winston");
-var URL = require("url");
-
-http_codes = {
+let imgs = fs.readdirSync(`${__dirname}/imgs`);
+const http_codes = {
   100: "Continue",
   101: "Switching Protocols",
   102: "Processing",
@@ -76,6 +72,9 @@ http_codes = {
   511: "Network Authentication Required",
 };
 
+const app = express();
+app.disable("x-powered-by");
+
 app.use(
   expressWinston.logger({
     transports: [new winston.transports.Console()],
@@ -83,14 +82,8 @@ app.use(
     msg: "{{req.method}} {{req.url}} {{req.status}}", // optional: customize the default logging message. E.g. "{{res.statusCode}} {{req.method}} {{res.responseTime}}ms {{req.url}}"
     expressFormat: false, // Use the default Express/morgan request formatting. Enabling this will override any msg if true. Will only output colors with colorize set to true
     colorize: false, // Color the text and status code, using the Express/morgan color palette (text: gray, status: default green, 3XX cyan, 4XX yellow, 5XX red).
-    ignoreRoute: function (req, res) {
-      // cq: none
-      return false;
-    }, // optional: allows to skip some log messages based on request and/or response
   })
 );
-
-var imgs = fs.readdirSync(__dirname + "/imgs");
 
 //remove the dir name from the img path
 imgs = imgs.map(function (file) {
@@ -102,51 +95,55 @@ nunjucks.configure(".", {
   express: app,
 });
 
-app.get("/", (req, res) => {
-  res.render("./index.html", { urls: imgs, statuscodes: http_codes });
+app.get("/", (_, res) => {
+  res.render(`${__dirname}/static/index.html`, {
+    urls: imgs,
+    statuscodes: http_codes, //skipcq JS-0125 // (var is defined, and works)
+  });
 });
 
 app.get("/:code", cors(), (req, res) => {
+  let fp; //skipcq
   try {
     //check if file exists
-    var fp =
-      __dirname + "/imgs/" + req.params.code.replace(".jpg", "") + ".jpg";
+    fp = `${__dirname}/imgs/${req.params.code.replace(".jpg", "")}.jpg`;
     if (fs.existsSync(fp)) {
       res.sendFile(fp);
     } else {
-      throw "e";
+      throw "e"; //skipcq
     }
   } catch (err) {
     console.error(err);
-    res.status(404).sendFile(__dirname + "/imgs/404.jpg");
+    res.status(404).sendFile(`${__dirname}/imgs/404.jpg`);
   }
 });
 
 //static handling
 app.get("/static/:path", (req, res) => {
+  let fp; //skipcq
   try {
-    var fp = __dirname + "/static/" + req.params.path;
+    fp = `${__dirname}/static/${req.params.path}`;
     if (fs.existsSync(fp)) {
       res.sendFile(fp);
     } else {
-      throw "e";
+      throw "e"; //skipcq
     }
   } catch (err) {
     console.error(err);
-    res.status(404).sendFile(__dirname + "/imgs/404.jpg");
+    res.status(404).sendFile(`${__dirname}/imgs/404.jpg`);
   }
 });
 
-app.get("/favicon.ico", (req, res) => {
-  res.sendFile(__dirname + "/static/favicon.jpg");
+app.get("/favicon.ico", (_, res) => {
+  res.sendFile(`${__dirname}/static/favicon.jpg`);
 });
 
-app.get("/static/favicon.ico", (req, res) => {
-  res.sendFile(__dirname + "/static/favicon.jpg");
+app.get("/static/favicon.ico", (_, res) => {
+  res.sendFile(`${__dirname}/static/favicon.jpg`);
 });
 
 //print every request
-app.on("response", (req, res) => {
+app.on("response", (req, _) => {
   console.log("Request:" + req.url);
 });
 
