@@ -8,9 +8,6 @@ Parody of http.cat and http.dog, but for Meower.
 
 ## Codes That are not done
 
-- '103': 'Early Hints',
-- '201': 'Created',
-- '202': 'Accepted',
 - '203': 'Non-Authoritative Information',
 - '205': 'Reset Content',
 - '207': 'Multi-Status',
