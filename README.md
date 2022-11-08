@@ -36,7 +36,7 @@ Parody of http.cat and http.dog, but for Meower.
 - '417': 'Expectation Failed',
 - '418': "I'm a Teapot",
 - '421': 'Misdirected Request',
-- '423': 'Locked', 
+- '423': 'Locked',
 - '424': 'Failed Dependency',
 - '425': 'Too Early',
 - '428': 'Precondition Required',
