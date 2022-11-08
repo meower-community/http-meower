@@ -8,12 +8,7 @@ Parody of http.cat and http.dog, but for Meower.
 
 ## Codes That are not done
 
-- '102': 'Processing',
-- '103': 'Early Hints',
-- '201': 'Created',
-- '202': 'Accepted',
 - '203': 'Non-Authoritative Information',
-- '204': 'No Content',
 - '205': 'Reset Content',
 - '207': 'Multi-Status',
 - '208': 'Already Reported',
@@ -41,7 +36,8 @@ Parody of http.cat and http.dog, but for Meower.
 - '417': 'Expectation Failed',
 - '418': "I'm a Teapot",
 - '421': 'Misdirected Request',
-- '423': 'Locked', - '424': 'Failed Dependency',
+- '423': 'Locked',
+- '424': 'Failed Dependency',
 - '425': 'Too Early',
 - '428': 'Precondition Required',
 - '431': 'Request Header Fields Too Large',
