@@ -7,7 +7,6 @@ const winston = require("winston");
 
 let imgs = fs.readdirSync(`${__dirname}/imgs`);
 
-require("dotenv").config();
 
 const http_codes = {
   100: "Continue",
