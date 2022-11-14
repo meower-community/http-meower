@@ -21,6 +21,7 @@ const http_codes = {
   206: "Partial Content",
   207: "Multi-Status",
   208: "Already Reported",
+  218: "This is fine",
   226: "IM Used",
   300: "Multiple Choices",
   301: "Moved Permanently",
@@ -88,7 +89,7 @@ app.use(
 );
 
 //remove the dir name from the img path
-imgs = imgs.map(function (file) {
+imgs = imgs.map((file) => {
   return file.split("/").pop();
 });
 

@@ -12,6 +12,7 @@ Parody of http.cat and http.dog, but for Meower.
 - '205': 'Reset Content',
 - '207': 'Multi-Status',
 - '208': 'Already Reported',
+- 218: "This is fine",
 - '300': 'Multiple Choices',
 - '301': 'Moved Permanently',
 - '302': 'Found',
