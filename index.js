@@ -6,6 +6,9 @@ const expressWinston = require("express-winston");
 const winston = require("winston");
 
 let imgs = fs.readdirSync(`${__dirname}/imgs`);
+
+require("dotenv").config();
+
 const http_codes = {
   100: "Continue",
   101: "Switching Protocols",
@@ -48,6 +51,7 @@ const http_codes = {
   416: "Range Not Satisfiable",
   417: "Expectation Failed",
   418: "I'm a Teapot",
+  420: "Enhance Your Calm",
   421: "Misdirected Request",
   422: "Unprocessable Entity",
   423: "Locked",
