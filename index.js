@@ -6,6 +6,7 @@ const expressWinston = require("express-winston");
 const winston = require("winston");
 
 let imgs = fs.readdirSync(`${__dirname}/imgs`);
+
 const http_codes = {
   100: "Continue",
   101: "Switching Protocols",
@@ -20,6 +21,7 @@ const http_codes = {
   206: "Partial Content",
   207: "Multi-Status",
   208: "Already Reported",
+  218: "This is fine",
   226: "IM Used",
   300: "Multiple Choices",
   301: "Moved Permanently",
@@ -48,6 +50,7 @@ const http_codes = {
   416: "Range Not Satisfiable",
   417: "Expectation Failed",
   418: "I'm a Teapot",
+  420: "Enhance Your Calm",
   421: "Misdirected Request",
   422: "Unprocessable Entity",
   423: "Locked",
@@ -86,7 +89,7 @@ app.use(
 );
 
 //remove the dir name from the img path
-imgs = imgs.map(function (file) {
+imgs = imgs.map((file) => {
   return file.split("/").pop();
 });
 
