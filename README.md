@@ -4,7 +4,7 @@ Parody of http.cat and http.dog, but for Meower.
 
 ## hosting:
 
-[Cloudflare pages](https://pages.cloudflare.com/)
+ShowierData9978's RPI
 
 ## Codes That are not done
 
@@ -24,7 +24,6 @@ Parody of http.cat and http.dog, but for Meower.
 - '412': 'Precondition Failed',
 - '413': 'Payload Too Large',
 - '414': 'URI Too Long',
-- '415': 'Unsupported Media Type',
 - '416': 'Range Not Satisfiable',
 - '417': 'Expectation Failed',
 - '421': 'Misdirected Request',
